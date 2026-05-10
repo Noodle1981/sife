@@ -26,14 +26,12 @@ export default function Features() {
 
       <div className={`container ${styles.container}`}>
         <div className={styles.contentHeader}>
-          <h2 className={styles.mainSectionTitle}>Soluciones SIFE</h2>
+          <h2 className={styles.mainSectionTitle}>Características de SIFE</h2>
         </div>
 
         <div className={styles.benefitsCard}>
-          <div className={styles.cardHeader}>
-            <h3 className={styles.cardMainTitle}>Beneficios para la Institución</h3>
-          </div>
-          
+
+
           <div className={styles.grid}>
             {features.map((feature, index) => (
               <div key={index} className={styles.featureItem}>

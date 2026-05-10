@@ -1,11 +1,11 @@
 .featuresSection {
   position: relative;
-  /* Premium Mesh Gradient Background */
   background: radial-gradient(at 0% 0%, #276CE9 0%, transparent 50%),
               radial-gradient(at 100% 0%, #1e4bb3 0%, transparent 50%),
               radial-gradient(at 50% 100%, #3b82f6 0%, transparent 50%),
               #276CE9;
   padding: 8rem 0 10rem 0;
+  margin-top: -8rem; /* Pull up to eliminate the white gap */
   z-index: 1;
   overflow: hidden;
 }
@@ -33,12 +33,12 @@
 }
 
 .contentHeader {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem; /* Reduced from 4rem */
   text-align: center;
 }
 
 .mainSectionTitle {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 2.75rem); /* Slightly smaller */
   font-weight: 800;
   color: white;
   letter-spacing: -0.02em;
@@ -46,35 +46,18 @@
 }
 
 .benefitsCard {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
+  background: transparent;
   width: 100%;
   max-width: 1100px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.cardHeader {
-  padding: 3rem 3rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.cardMainTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+  border: none;
+  overflow: visible;
+  transition: transform 0.4s ease;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
 }
 
 @media (min-width: 768px) {
@@ -84,45 +67,88 @@
 }
 
 .featureItem {
-  padding: 3.5rem 2.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2.5rem 2rem; /* Reduced from 4rem/2.5rem */
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .featureItem:first-child {
+    border-radius: 20px 0 0 20px;
+  }
+  .featureItem:last-child {
+    border-radius: 0 20px 20px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .featureItem:first-child {
+    border-radius: 20px 20px 0 0;
+  }
+  .featureItem:last-child {
+    border-radius: 0 0 20px 20px;
+  }
 }
 
 .featureItem:hover {
-  background-color: rgba(39, 108, 233, 0.03);
-  transform: translateY(-5px);
+  background-color: #276CE9;
+  transform: translateY(-8px);
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featureItem:hover .featureTitle {
+  color: white;
+}
+
+.featureItem:hover .featureDescription {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .featureItem:hover .iconWrapper {
   transform: scale(1.1) rotate(5deg);
-  background: #276CE9;
-  color: white;
+  background-color: white;
+  color: #276CE9;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
   .featureItem {
-    border-bottom: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
   }
   .featureItem:last-child {
     border-right: none;
   }
+  .featureItem:hover {
+    border-right-color: transparent;
+  }
+}
+
+@media (max-width: 767px) {
+  .featureItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  }
+  .featureItem:last-child {
+    border-bottom: none;
+  }
 }
 
 .iconWrapper {
-  margin-bottom: 2rem;
-  width: 64px;
-  height: 64px;
+  margin-bottom: 1.25rem; /* Reduced from 2rem */
+  width: 56px; /* Slightly smaller */
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
+  border-radius: 14px;
   background-color: rgba(39, 108, 233, 0.1);
   color: #276CE9;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -133,14 +159,16 @@
 }
 
 .featureTitle {
-  font-size: 1.4rem;
+  font-size: 1.25rem; /* Slightly smaller */
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
 .featureDescription {
   color: #64748b;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem; /* Slightly smaller */
+  transition: color 0.3s ease;
 }

@@ -25,12 +25,12 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.container}`}>
         <Link href="/" className={styles.logo}>
-          <Image src="/logo.png" alt="SIFE Logo" width={96} height={96} className={styles.logoImage} />
+          <Image src="/logo.png" alt="SIFE Logo" width={96} height={96} className={styles.logoImage} priority />
         </Link>
         <div className={styles.links}>
           <Link href="#features">Características</Link>
           <Link href="#solutions">Soluciones</Link>
-          <Link href="#testimonials">Testimonios</Link>
+          <Link href="#adaptability">Adaptabilidad</Link>
         </div>
         <div className={styles.cta}>
           <button className="btn-primary">Solicitar Demo</button>

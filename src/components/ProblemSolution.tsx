@@ -21,12 +21,7 @@ export default function ProblemSolution() {
   return (
     <section id="solutions" className={`section ${styles.section}`}>
       <div className="container">
-        <div className={styles.header}>
-          <h2 className={styles.title}>El fin de la gestión manual</h2>
-          <p className={styles.subtitle}>
-            Entendemos la realidad de los colegios. Por eso construimos la salida hacia la automatización.
-          </p>
-        </div>
+
 
         <div className={styles.comparisonWrapper}>
           {/* Problem Card */}

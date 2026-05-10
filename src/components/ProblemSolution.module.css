@@ -1,28 +1,11 @@
 .section {
   background-color: #f8fafc; /* slate-50 to match visual.md */
-  padding: 6rem 0;
+  padding: 10rem 0; /* Increased for better separation */
   position: relative;
   overflow: hidden;
 }
 
-.header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 4rem;
-}
 
-.title {
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 800;
-  color: var(--foreground);
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
 
 .comparisonWrapper {
   display: flex;

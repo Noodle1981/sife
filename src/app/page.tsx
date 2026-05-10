@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import ProblemSolution from "@/components/ProblemSolution";
-import Testimonials from "@/components/Testimonials";
+import Adaptability from "@/components/Adaptability";
 import ContactForm from "@/components/ContactForm";
 import styles from "./page.module.css";
 
@@ -15,7 +15,7 @@ export default function Home() {
       </div>
       <Features />
       <ProblemSolution />
-      <Testimonials />
+      <Adaptability />
       <ContactForm />
       
       <footer style={{ backgroundColor: "#0f172a", color: "#94a3b8", padding: "2rem 0", textAlign: "center", fontSize: "0.875rem" }}>

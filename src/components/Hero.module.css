@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding: 6rem 0 4rem; /* Increased top padding to avoid logo overlap */
+  padding: 8rem 0 12rem; /* Increased significantly for isolation */
   overflow: hidden;
   background-color: transparent; /* transparent to show shared background image */
 }
