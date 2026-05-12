@@ -33,7 +33,12 @@ export default function Navbar() {
           <Link href="#adaptability">Adaptabilidad</Link>
         </div>
         <div className={styles.cta}>
-          <button className="btn-primary">Solicitar Demo</button>
+          <Link href="/login" className="btn-secondary" style={{ marginRight: '1rem' }}>
+            Ingresar
+          </Link>
+          <Link href="#contact" className="btn-primary">
+            Solicitar Demo
+          </Link>
         </div>
       </div>
     </nav>

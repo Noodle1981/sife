@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TurboSite | Next-Gen Performance",
-  description: "Experience the future of web development with TurboSite. Built with React 19 and Turbopack for insane speed.",
+  title: "SIFE - Gestión Financiera Escolar Automática",
+  description: "Sistema Integral Financiero Educativo. Automatización de cobranzas y conciliación bancaria para instituciones educativas.",
 };
 
 export default function RootLayout({

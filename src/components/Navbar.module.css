@@ -11,10 +11,10 @@
 }
 
 .scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #233343;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -59,10 +59,13 @@
   .links a {
     color: var(--text-muted);
     font-weight: 500;
-    transition: color 0.2s;
+    transition: all 0.2s;
   }
-  .links a:hover {
-    color: var(--foreground);
+  .scrolled .links a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .links a:hover, .scrolled .links a:hover {
+    color: #286DE1;
   }
 }
 
