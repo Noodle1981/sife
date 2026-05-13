@@ -132,8 +132,8 @@ export default function FinancesPage() {
         <div className={styles.statCard}>
           <div className={styles.statLabel}>Total Alumnos Pagos</div>
           <div className={styles.statValue}>
-            {totalPaidStudents.toLocaleString()}
-            <span style={{ fontSize: '1rem', color: '#64748b', fontWeight: 400 }}> / {totalStudents.toLocaleString()}</span>
+            {totalPaidStudents.toLocaleString('es-AR')}
+            <span style={{ fontSize: '1rem', color: '#64748b', fontWeight: 400 }}> / {totalStudents.toLocaleString('es-AR')}</span>
           </div>
           <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Suscritos a través de SIFE</div>
         </div>
@@ -210,7 +210,7 @@ export default function FinancesPage() {
                     </td>
                     <td>
                       <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-                        {inst.lastUpdate && !isNaN(new Date(inst.lastUpdate).getTime()) ? new Date(inst.lastUpdate).toLocaleDateString() : 'N/A'}
+                        {inst.lastUpdate && !isNaN(new Date(inst.lastUpdate).getTime()) ? new Date(inst.lastUpdate).toLocaleDateString('es-AR') : 'N/A'}
                       </div>
                     </td>
                     <td>
@@ -261,7 +261,7 @@ export default function FinancesPage() {
                 <tr>
                   <td colSpan={3} style={{ padding: '1rem' }}>TOTALES GLOBALES</td>
                   <td style={{ padding: '1rem' }}>
-                    {totalPaidStudents} <span style={{ fontWeight: 400, color: '#64748b' }}>/ {totalStudents}</span>
+                    {totalPaidStudents.toLocaleString('es-AR')} <span style={{ fontWeight: 400, color: '#64748b' }}>/ {totalStudents.toLocaleString('es-AR')}</span>
                   </td>
                   <td style={{ padding: '1rem' }}>${(totalGlobalRevenue || 0).toLocaleString('es-AR')}</td>
                   <td style={{ padding: '1rem', color: '#286DE1', fontSize: '1rem' }}>${(totalSifeRevenue || 0).toLocaleString('es-AR')}</td>

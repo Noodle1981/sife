@@ -10,14 +10,14 @@ Antes de que los colegios operen, necesitas una forma de captarlos y darles acce
   - Gestión de Instituciones (Alta, modalidades, estados).
   - Configuración global y permisos de administradores de escuela.
 
-## Etapa 2: Estructura Institucional (Onboarding de la Escuela) - EN PROGRESO 🔄
+## Etapa 2: Estructura Institucional (Onboarding de la Escuela) - COMPLETADA ✅
 Una vez que el colegio tiene su cuenta, el "Administrador de la Escuela" debe poder armar su estructura organizativa.
 - **Gestión de Accesos**: El Administrador principal de la escuela puede crear otros usuarios administrativos y asignarles permisos.
 - **Configuración de Niveles Educativos**: Capacidad de crear los niveles que mencionas: Inicial, Primaria, Secundaria, Técnica, Terciario o Superior.
-- **Armado de Cursos y Materias**: Dentro de cada nivel, se crean los cursos (ej. 1er Año "A", Sala de 4, etc.).
+- **Armado de Cursos y Talleres**: Dentro de cada nivel, se crean los cursos (ej. 1er Año "A", Sala de 4, etc.) y se definen los talleres o servicios opcionales.
 - **Importación de Datos**: Desarrollo de la función para importar plantillas de Excel con los datos de los alumnos y cursos.
 
-## Etapa 3: Gestión de la Comunidad (Alumnos y Familias)
+## Etapa 3: Gestión de la Comunidad (Alumnos y Familias) - EN PROGRESO 🔄
 - **Alta de Alumnos**: Se agregan los alumnos y se asignan a sus respectivos cursos.
 - **Conexión con Padres/Tutores**: Generación automática de perfiles de responsables económicos.
 - **Portal de Familias**: Vista personalizada para que padres vean la situación de sus hijos y realicen pagos.

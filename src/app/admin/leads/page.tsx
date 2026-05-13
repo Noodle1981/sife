@@ -157,10 +157,10 @@ export default function LeadsPage() {
                   <tr key={lead.id}>
                     <td>
                       <div style={{ fontSize: '0.875rem', fontWeight: 500 }}>
-                        {lead.created_at ? new Date(lead.created_at).toLocaleDateString() : 'N/A'}
+                        {lead.created_at ? new Date(lead.created_at).toLocaleDateString('es-AR') : 'N/A'}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                        {lead.created_at ? new Date(lead.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                        {lead.created_at ? new Date(lead.created_at).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : ''}
                       </div>
                     </td>
                     <td>

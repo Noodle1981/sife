@@ -295,7 +295,7 @@ export default function InstitutionsPage() {
                               <GraduationCap size={12} color="#64748b" />
                               {mod.name}
                             </span>
-                            <span style={{ color: '#286DE1', fontWeight: 700 }}>{mod.students}</span>
+                            <span style={{ color: '#286DE1', fontWeight: 700 }}>{mod.students.toLocaleString('es-AR')}</span>
                           </div>
                         ))}
                       </div>
@@ -311,7 +311,7 @@ export default function InstitutionsPage() {
                         minWidth: '80px'
                       }}>
                         <Users size={18} color="#286DE1" />
-                        <div style={{ fontWeight: 700, fontSize: '1rem', color: '#233343' }}>{inst.totalStudents}</div>
+                        <div style={{ fontWeight: 700, fontSize: '1rem', color: '#233343' }}>{inst.totalStudents.toLocaleString('es-AR')}</div>
                         <div style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase' }}>Alumnos</div>
                       </div>
                     </td>

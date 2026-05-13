@@ -120,7 +120,7 @@ export default function AdminDashboard() {
             <div className={styles.statLabel}>Total Alumnos SIFE</div>
             <Users size={20} color="#94a3b8" />
           </div>
-          <div className={styles.statValue}>{stats.totalStudents.toLocaleString()}</div>
+          <div className={styles.statValue}>{stats.totalStudents.toLocaleString('es-AR')}</div>
           <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>
             Matrícula total gestionada
           </div>
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
                   leads.map((lead) => (
                     <tr key={lead.id}>
                       <td style={{ fontSize: '0.815rem' }}>
-                        {lead.created_at ? new Date(lead.created_at).toLocaleDateString() : 'N/A'}
+                        {lead.created_at ? new Date(lead.created_at).toLocaleDateString('es-AR') : 'N/A'}
                       </td>
                       <td>
                         <div style={{ fontWeight: 600, fontSize: '0.875rem' }}>{lead.school_name}</div>
