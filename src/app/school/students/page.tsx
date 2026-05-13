@@ -200,7 +200,7 @@ export default function StudentsPage() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ borderBottom: '1px solid var(--border)', pb: '1rem' }}>
+              <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: '1rem' }}>
                 <h4 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: '#94a3b8', marginBottom: '0.75rem' }}>Responsable Económico</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: 600 }}>
