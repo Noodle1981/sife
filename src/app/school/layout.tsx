@@ -41,7 +41,7 @@ export default function SchoolLayout({
     { href: "/school/levels", label: "Niveles y Estructura", icon: Layers },
     { href: "/school/courses", label: "Cursos y Talleres", icon: BookOpen },
     { href: "/school/students", label: "Alumnos y Familias", icon: Users },
-    { href: "/school/finances", label: "Conceptos de Cobro", icon: CreditCard },
+    { href: "/school/finances", label: "Finanzas y Tesorería", icon: CreditCard },
   ];
 
   const configMenuItems = [

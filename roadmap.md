@@ -17,15 +17,15 @@ Una vez que el colegio tiene su cuenta, el "Administrador de la Escuela" debe po
 - **Armado de Cursos y Talleres**: Dentro de cada nivel, se crean los cursos (ej. 1er Año "A", Sala de 4, etc.) y se definen los talleres o servicios opcionales.
 - **Importación de Datos**: Desarrollo de la función para importar plantillas de Excel con los datos de los alumnos y cursos.
 
-## Etapa 3: Gestión de la Comunidad (Alumnos y Familias) - EN PROGRESO 🔄
-- **Alta de Alumnos**: Se agregan los alumnos y se asignan a sus respectivos cursos.
-- **Conexión con Padres/Tutores**: Generación automática de perfiles de responsables económicos.
-- **Portal de Familias**: Vista personalizada para que padres vean la situación de sus hijos y realicen pagos.
+## Etapa 3: Gestión de la Comunidad (Alumnos y Familias) - COMPLETADA ✅
+- **Alta de Alumnos**: Implementado el legajo con múltiples responsables y vinculación bancaria automática.
+- **Conexión con Padres/Tutores**: Generación de perfiles de responsables económicos con seguimiento de saldo (crédito/deuda).
+- **Portal de Familias**: Diseño base de la situación financiera familiar.
 
-## Etapa 4: Motor Financiero y Asignación de Cobros (El núcleo de SIFE)
-- **Configuración de Conceptos de Cobro**: Definición de cuotas, inscripciones, materiales, talleres, etc.
-- **Asignación de Deuda**: Vinculación de conceptos de cobro a alumnos o cursos completos.
-- **Medios de Pago y Vínculo Bancario**: Integración con pasarelas de pago y validación de CBU/CVU.
+## Etapa 4: Motor Financiero y Asignación de Cobros (El núcleo de SIFE) - EN PROGRESO 🔄
+- **Dashboard de Tesorería**: Centro de control con métricas de recaudación, morosidad y proyecciones.
+- **Configuración de Conceptos de Cobro**: Implementado el sistema de conceptos extra (talleres, viajes, donaciones) con alcance granular.
+- **Medios de Pago y Vínculo Bancario**: Estructura para conciliación basada en Alias/CBU de los responsables.
 
 ## Etapa 5: Conciliación Automática y Dashboards Escolares
 - **Conciliación Automática**: El sistema detecta los ingresos e impacta automáticamente el pago en el legajo del alumno.

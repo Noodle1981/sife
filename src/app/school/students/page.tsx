@@ -14,13 +14,23 @@ import {
   Wallet,
   ArrowUpRight,
   ArrowDownRight,
-  UserCheck
+  UserCheck,
+  X,
+  Plus
 } from "lucide-react";
 import styles from "../../admin/dashboard/dashboard.module.css";
 import { Student, Responsible, Course } from "@/types";
 
 export default function StudentsPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newStudent, setNewStudent] = useState<Partial<Student & { responsibles: Partial<Responsible>[] }>>({
+    first_name: '',
+    last_name: '',
+    dni: '',
+    course_id: '',
+    responsibles: [{ full_name: '', relationship: 'padre', email: '', dni: '' }]
+  });
   
   // Mock data
   const students: (Student & { course_name: string })[] = [
@@ -41,10 +51,30 @@ export default function StudentsPage() {
     }
   ];
 
+  const courses = [
+    { id: "1", name: "Sala de 4 - Mañana" },
+    { id: "2", name: "Sala de 5 - Tarde" },
+    { id: "3", name: "1° Grado 'A'" },
+    { id: "4", name: "1° Grado 'B'" },
+    { id: "5", name: "1° Año Secundaria" },
+  ];
+
   const responsibles: Record<string, Responsible> = {
     "r1": { id: "r1", full_name: "Omar Olivera", email: "omar@ejemplo.com", phone: "2644123456", relationship: 'padre', dni: "20.123.456", alias: "omar.sife.pagos" },
     "r2": { id: "r2", full_name: "Lucía Méndez", email: "lucia@ejemplo.com", phone: "2644987654", relationship: 'madre', dni: "22.789.012", alias: "lucia.uclp" },
     "r3": { id: "r3", full_name: "Ricardo Rodríguez", email: "ricardo@ejemplo.com", phone: "2644555666", relationship: 'padre', dni: "18.555.666" },
+  };
+
+  const handleAddResponsible = () => {
+    setNewStudent({
+      ...newStudent,
+      responsibles: [...(newStudent.responsibles || []), { full_name: '', relationship: 'madre', email: '', dni: '' }]
+    });
+  };
+
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsModalOpen(false);
   };
 
   const getBalanceStyle = (balance: number) => {
@@ -62,7 +92,7 @@ export default function StudentsPage() {
             Gestión de legajos, responsables económicos y estados de cuenta.
           </p>
         </div>
-        <button className="btn-primary">
+        <button className="btn-primary" onClick={() => setIsModalOpen(true)}>
           <UserPlus size={18} />
           Nuevo Alumno
         </button>
@@ -223,6 +253,137 @@ export default function StudentsPage() {
           </section>
         </aside>
       </div>
+
+      {/* New Student Modal */}
+      {isModalOpen && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem'
+        }}>
+          <div style={{
+            backgroundColor: 'white', borderRadius: '16px', width: '100%', maxWidth: '800px',
+            maxHeight: '90vh', overflowY: 'auto', padding: '2.5rem', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+          }}>
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8' }}
+            >
+              <X size={24} />
+            </button>
+
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <UserPlus size={24} color="#286DE1" />
+              Alta de Nuevo Alumno
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '2rem' }}>
+              Completa los datos del alumno y vincula a sus responsables económicos.
+            </p>
+
+            <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {/* Student Data */}
+              <div>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', color: '#1e293b', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>
+                  Datos del Alumno
+                </h3>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Nombre</label>
+                    <input type="text" required className={styles.input} style={{ width: '100%' }} placeholder="Ej: Juan" />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Apellido</label>
+                    <input type="text" required className={styles.input} style={{ width: '100%' }} placeholder="Ej: Pérez" />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>DNI</label>
+                    <input type="text" required className={styles.input} style={{ width: '100%' }} placeholder="XX.XXX.XXX" />
+                  </div>
+                </div>
+                <div style={{ marginTop: '1rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Curso / División</label>
+                  <select required className={styles.input} style={{ width: '100%' }}>
+                    <option value="">Seleccionar curso...</option>
+                    {courses.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                  </select>
+                </div>
+              </div>
+
+              {/* Family Data */}
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1e293b' }}>Responsables y Familiares</h3>
+                  <button type="button" onClick={handleAddResponsible} className="btn-secondary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem' }}>
+                    <Plus size={14} /> Agregar Familiar
+                  </button>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  {newStudent.responsibles?.map((resp, index) => (
+                    <div key={index} style={{ backgroundColor: '#f8fafc', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', position: 'relative' }}>
+                      {index > 0 && (
+                        <button type="button" style={{ position: 'absolute', top: '1rem', right: '1rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                          <X size={16} />
+                        </button>
+                      )}
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Nombre Completo</label>
+                          <input type="text" required className={styles.input} style={{ width: '100%' }} placeholder="Ej: Ana García" />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Parentesco</label>
+                          <select className={styles.input} style={{ width: '100%' }}>
+                            <option value="padre">Padre</option>
+                            <option value="madre">Madre</option>
+                            <option value="tutor">Tutor Legal</option>
+                            <option value="otro">Otro</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Email</label>
+                          <input type="email" required className={styles.input} style={{ width: '100%' }} placeholder="ejemplo@correo.com" />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '0.815rem', fontWeight: 600, marginBottom: '0.4rem' }}>Teléfono</label>
+                          <input type="text" className={styles.input} style={{ width: '100%' }} placeholder="+54 264 ..." />
+                        </div>
+                      </div>
+                      <div style={{ borderTop: '1px dashed #cbd5e1', paddingTop: '1rem', marginTop: '0.5rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                          <CreditCard size={16} color="#64748b" />
+                          <span style={{ fontSize: '0.815rem', fontWeight: 700, color: '#475569' }}>Datos para Conciliación (Opcional)</span>
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                          <div>
+                            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b', marginBottom: '0.3rem' }}>CBU / CVU</label>
+                            <input type="text" className={styles.input} style={{ width: '100%', fontSize: '0.75rem' }} placeholder="22 dígitos..." />
+                          </div>
+                          <div>
+                            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b', marginBottom: '0.3rem' }}>Alias Mercado Pago / Banco</label>
+                            <input type="text" className={styles.input} style={{ width: '100%', fontSize: '0.75rem' }} placeholder="mi.alias.pago" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                <button type="button" className="btn-secondary" style={{ flex: 1 }} onClick={() => setIsModalOpen(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn-primary" style={{ flex: 2, gap: '0.75rem' }}>
+                  <UserPlus size={18} />
+                  Confirmar Alta de Alumno
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
