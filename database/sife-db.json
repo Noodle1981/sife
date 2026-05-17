@@ -1,0 +1,281 @@
+{
+  "responsibles": [
+    {
+      "id": "resp_carlos",
+      "full_name": "Carlos Ortega",
+      "email": "carlos@colegio.edu.ar",
+      "phone": "264-4123456",
+      "dni": "28.345.678",
+      "alias_assigned": "carlos.ortega.sife",
+      "cbu_assigned": "0000003100012345678901",
+      "cvu_assigned": "0000003100098765432109",
+      "created_at": "2026-05-17T12:00:00Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "stud_tomas",
+      "first_name": "Tomás",
+      "last_name": "Ortega",
+      "dni": "54.123.456",
+      "course_id": "course_inicial",
+      "course_name": "Sala de 5 - Inicial",
+      "responsible_id": "resp_carlos",
+      "status": "active"
+    },
+    {
+      "id": "stud_matias",
+      "first_name": "Matías",
+      "last_name": "Ortega",
+      "dni": "48.789.012",
+      "course_id": "course_primaria",
+      "course_name": "1° Grado 'A' - Primaria",
+      "responsible_id": "resp_carlos",
+      "status": "active"
+    },
+    {
+      "id": "stud_sofia",
+      "first_name": "Sofía",
+      "last_name": "Ortega",
+      "dni": "43.456.789",
+      "course_id": "course_secundaria",
+      "course_name": "1° Año - Secundaria",
+      "responsible_id": "resp_carlos",
+      "status": "active"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course_inicial",
+      "name": "Sala de 5 - Inicial",
+      "level": "Inicial",
+      "base_fee": 45000
+    },
+    {
+      "id": "course_primaria",
+      "name": "1° Grado 'A' - Primaria",
+      "level": "Primaria",
+      "base_fee": 65000
+    },
+    {
+      "id": "course_secundaria",
+      "name": "1° Año - Secundaria",
+      "level": "Secundaria",
+      "base_fee": 85000
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_tomas_insc",
+      "student_id": "stud_tomas",
+      "concept_name": "Inscripción Ciclo Lectivo 2026",
+      "amount": 20000,
+      "due_date": "2026-03-05T23:59:59Z",
+      "status": "paid",
+      "category": "inscripcion",
+      "created_at": "2026-02-15T08:00:00Z"
+    },
+    {
+      "id": "pay_tomas_mar",
+      "student_id": "stud_tomas",
+      "concept_name": "Cuota Escolar Marzo 2026",
+      "amount": 45000,
+      "due_date": "2026-03-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-03-01T08:00:00Z"
+    },
+    {
+      "id": "pay_tomas_abr",
+      "student_id": "stud_tomas",
+      "concept_name": "Cuota Escolar Abril 2026",
+      "amount": 45000,
+      "due_date": "2026-04-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-04-01T08:00:00Z"
+    },
+    {
+      "id": "pay_tomas_may",
+      "student_id": "stud_tomas",
+      "concept_name": "Cuota Escolar Mayo 2026",
+      "amount": 45000,
+      "due_date": "2026-05-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-05-01T08:00:00Z"
+    },
+    {
+      "id": "pay_tomas_may_retro",
+      "student_id": "stud_tomas",
+      "concept_name": "Ajuste Retroactivo Mayo (Aumento 10% Autorizado)",
+      "amount": 4500,
+      "due_date": "2026-05-25T23:59:59Z",
+      "status": "pending",
+      "category": "retroactivo",
+      "created_at": "2026-05-15T08:00:00Z"
+    },
+    {
+      "id": "pay_tomas_jun",
+      "student_id": "stud_tomas",
+      "concept_name": "Cuota Escolar Junio 2026 (Valor Actualizado)",
+      "amount": 49500,
+      "due_date": "2026-06-10T23:59:59Z",
+      "status": "upcoming",
+      "category": "cuota",
+      "created_at": "2026-06-01T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_insc",
+      "student_id": "stud_matias",
+      "concept_name": "Inscripción Ciclo Lectivo 2026",
+      "amount": 25000,
+      "due_date": "2026-03-05T23:59:59Z",
+      "status": "paid",
+      "category": "inscripcion",
+      "created_at": "2026-02-15T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_mar",
+      "student_id": "stud_matias",
+      "concept_name": "Cuota Escolar Marzo 2026",
+      "amount": 65000,
+      "due_date": "2026-03-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-03-01T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_abr",
+      "student_id": "stud_matias",
+      "concept_name": "Cuota Escolar Abril 2026",
+      "amount": 65000,
+      "due_date": "2026-04-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-04-01T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_may",
+      "student_id": "stud_matias",
+      "concept_name": "Cuota Escolar Mayo 2026",
+      "amount": 65000,
+      "due_date": "2026-05-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-05-01T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_may_retro",
+      "student_id": "stud_matias",
+      "concept_name": "Ajuste Retroactivo Mayo (Aumento 10% Autorizado)",
+      "amount": 6500,
+      "due_date": "2026-05-25T23:59:59Z",
+      "status": "pending",
+      "category": "retroactivo",
+      "created_at": "2026-05-15T08:00:00Z"
+    },
+    {
+      "id": "pay_matias_jun",
+      "student_id": "stud_matias",
+      "concept_name": "Cuota Escolar Junio 2026 (Valor Actualizado)",
+      "amount": 71500,
+      "due_date": "2026-06-10T23:59:59Z",
+      "status": "upcoming",
+      "category": "cuota",
+      "created_at": "2026-06-01T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_insc",
+      "student_id": "stud_sofia",
+      "concept_name": "Inscripción Ciclo Lectivo 2026",
+      "amount": 30000,
+      "due_date": "2026-03-05T23:59:59Z",
+      "status": "paid",
+      "category": "inscripcion",
+      "created_at": "2026-02-15T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_mar",
+      "student_id": "stud_sofia",
+      "concept_name": "Cuota Escolar Marzo 2026",
+      "amount": 85000,
+      "due_date": "2026-03-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-03-01T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_abr",
+      "student_id": "stud_sofia",
+      "concept_name": "Cuota Escolar Abril 2026",
+      "amount": 85000,
+      "due_date": "2026-04-10T23:59:59Z",
+      "status": "paid",
+      "category": "cuota",
+      "created_at": "2026-04-01T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_may",
+      "student_id": "stud_sofia",
+      "concept_name": "Cuota Escolar Mayo 2026 (Valor Base)",
+      "amount": 85000,
+      "due_date": "2026-05-10T23:59:59Z",
+      "status": "pending",
+      "category": "cuota",
+      "created_at": "2026-05-01T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_may_retro",
+      "student_id": "stud_sofia",
+      "concept_name": "Ajuste Retroactivo Mayo (Aumento 10% Autorizado)",
+      "amount": 8500,
+      "due_date": "2026-05-25T23:59:59Z",
+      "status": "pending",
+      "category": "retroactivo",
+      "created_at": "2026-05-15T08:00:00Z"
+    },
+    {
+      "id": "pay_sofia_jun",
+      "student_id": "stud_sofia",
+      "concept_name": "Cuota Escolar Junio 2026 (Valor Actualizado)",
+      "amount": 93500,
+      "due_date": "2026-06-10T23:59:59Z",
+      "status": "upcoming",
+      "category": "cuota",
+      "created_at": "2026-06-01T08:00:00Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_old_1",
+      "responsible_id": "resp_carlos",
+      "payment_ids": ["pay_tomas_insc", "pay_matias_insc", "pay_sofia_insc"],
+      "amount": 75000,
+      "payment_method": "transferencia",
+      "status": "approved",
+      "validated_at": "2026-02-16T10:15:30Z",
+      "created_at": "2026-02-16T10:00:00Z"
+    },
+    {
+      "id": "tx_old_2",
+      "responsible_id": "resp_carlos",
+      "payment_ids": ["pay_tomas_mar", "pay_matias_mar", "pay_sofia_mar"],
+      "amount": 195000,
+      "payment_method": "transferencia",
+      "status": "approved",
+      "validated_at": "2026-03-11T09:40:00Z",
+      "created_at": "2026-03-11T09:30:00Z"
+    },
+    {
+      "id": "tx_old_3",
+      "responsible_id": "resp_carlos",
+      "payment_ids": ["pay_tomas_abr", "pay_matias_abr", "pay_sofia_abr"],
+      "amount": 195000,
+      "payment_method": "transferencia",
+      "status": "approved",
+      "validated_at": "2026-04-12T14:22:00Z",
+      "created_at": "2026-04-12T14:10:00Z"
+    }
+  ]
+}

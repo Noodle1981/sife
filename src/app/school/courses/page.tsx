@@ -316,7 +316,7 @@ export default function CoursesPage() {
                     className={styles.input} 
                     style={{ width: '100%' }}
                     value={formData.category}
-                    onChange={(e) => setFormData({...formData, category: e.target.value as any})}
+                    onChange={(e) => setFormData({...formData, category: e.target.value as BillingConcept['category']})}
                   >
                     <option value="taller">Taller Extraprogramático</option>
                     <option value="excursion">Excursión / Salida</option>
@@ -373,7 +373,7 @@ export default function CoursesPage() {
                     <button
                       key={type}
                       type="button"
-                      onClick={() => setFormData({...formData, target_type: type as any, target_id: undefined})}
+                      onClick={() => setFormData({...formData, target_type: type as BillingConcept['target_type'], target_id: undefined})}
                       style={{
                         padding: '0.6rem',
                         borderRadius: '8px',

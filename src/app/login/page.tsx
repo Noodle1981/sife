@@ -20,10 +20,22 @@ export default function LoginPage() {
 
     try {
       // --- MOCK LOGIN PARA DESARROLLO ---
-      if (email === "admin@example.com" && password === "password") {
+      const isPlaceholderSupabase = !process.env.NEXT_PUBLIC_SUPABASE_URL || 
+        process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder");
+
+      if (isPlaceholderSupabase || (email === "admin@example.com" && password === "password")) {
         console.log("Mock login successful");
         document.cookie = "sb-mock-token=true; path=/";
-        window.location.href = "/admin/dashboard";
+        localStorage.setItem('sb-mock-user', JSON.stringify({ email }));
+        
+        // Redireccionar al panel correspondiente basado en el correo
+        if (email.toLowerCase().includes("admin")) {
+          window.location.href = "/admin/dashboard";
+        } else if (email.toLowerCase().includes("director")) {
+          window.location.href = "/school";
+        } else {
+          window.location.href = "/parent";
+        }
         return;
       }
       // ----------------------------------
@@ -126,6 +138,57 @@ export default function LoginPage() {
             )}
           </button>
         </form>
+
+        {/* Panel de ayuda de credenciales de desarrollo */}
+        <div style={{
+          marginTop: '1.5rem',
+          padding: '1rem',
+          backgroundColor: '#eff6ff',
+          border: '1px solid #bfdbfe',
+          borderRadius: '10px',
+          fontSize: '0.815rem',
+          color: '#1e40af',
+          animation: 'fadeIn 0.3s ease-in-out'
+        }}>
+          <div style={{ fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span>💡</span> Modo Desarrollo Local Activo
+          </div>
+          <p style={{ color: '#1e40af', opacity: 0.9, marginBottom: '0.5rem', lineHeight: '1.4' }}>
+            Cualquier contraseña ingresada funcionará. Haz clic en un correo para autocompletar e ingresar a su panel:
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0.5rem', backgroundColor: 'rgba(255, 255, 255, 0.6)', borderRadius: '6px' }}>
+              <span>Panel SIFE Admin:</span>
+              <span 
+                style={{ color: '#2563eb', cursor: 'pointer', textDecoration: 'underline' }} 
+                onClick={() => { setEmail('admin@example.com'); setPassword('password'); }} 
+                title="Click para autocompletar"
+              >
+                admin@example.com
+              </span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0.5rem', backgroundColor: 'rgba(255, 255, 255, 0.6)', borderRadius: '6px' }}>
+              <span>Panel Escuela:</span>
+              <span 
+                style={{ color: '#0ea5e9', cursor: 'pointer', textDecoration: 'underline' }} 
+                onClick={() => { setEmail('director@colegio.edu.ar'); setPassword('password'); }} 
+                title="Click para autocompletar"
+              >
+                director@colegio.edu.ar
+              </span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0.5rem', backgroundColor: 'rgba(255, 255, 255, 0.6)', borderRadius: '6px' }}>
+              <span>Portal Padres (Simulado):</span>
+              <span 
+                style={{ color: '#10b981', cursor: 'pointer', textDecoration: 'underline' }} 
+                onClick={() => { setEmail('carlos@colegio.edu.ar'); setPassword('password'); }} 
+                title="Click para autocompletar"
+              >
+                carlos@colegio.edu.ar
+              </span>
+            </div>
+          </div>
+        </div>
 
         <div className={styles.footer}>
           <p>¿No tiene una cuenta? Contacte a su administrador</p>

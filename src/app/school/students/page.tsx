@@ -196,7 +196,7 @@ export default function StudentsPage() {
                 <Users size={32} color="#64748b" />
               </div>
               <h3 style={{ fontWeight: 700, fontSize: '1.1rem' }}>Ignacio Olivera</h3>
-              <p style={{ fontSize: '0.815rem', color: 'var(--text-muted)' }}>1° Grado 'A'</p>
+              <p style={{ fontSize: '0.815rem', color: 'var(--text-muted)' }}>{"1° Grado 'A'"}</p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>

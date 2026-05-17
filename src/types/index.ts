@@ -24,7 +24,7 @@ export interface Institution {
     students: number;
   }[];
   status: 'activo' | 'inactivo' | 'demo';
-  settings?: any;
+  settings?: Record<string, unknown>;
 }
 
 export interface Payment {

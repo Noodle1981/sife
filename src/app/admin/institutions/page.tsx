@@ -160,8 +160,8 @@ export default function InstitutionsPage() {
       phone: formData.phone,
       email: formData.email,
       totalStudents,
-      modalities: formData.modalities as any,
-      status: formData.status as any
+      modalities: formData.modalities as Institution['modalities'],
+      status: formData.status as Institution['status']
     };
 
     setInstitutions([newInst, ...institutions]);
@@ -514,7 +514,7 @@ export default function InstitutionsPage() {
                   className={styles.input}
                   style={{ width: '100%' }}
                   value={formData.status}
-                  onChange={(e) => setFormData({...formData, status: e.target.value as any})}
+                  onChange={(e) => setFormData({...formData, status: e.target.value as Institution['status']})}
                 >
                   <option value="activo">Activo</option>
                   <option value="inactivo">Inactivo</option>

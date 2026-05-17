@@ -57,17 +57,16 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
   const isMocked = request.cookies.get('sb-mock-token')?.value === 'true'
 
-  // Proteger rutas /admin
-  if (request.nextUrl.pathname.startsWith('/admin')) {
+  // Proteger rutas /admin y /parent
+  if (request.nextUrl.pathname.startsWith('/admin') || request.nextUrl.pathname.startsWith('/parent')) {
     if (!user && !isMocked) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
-    // Opcional: Verificar si el usuario es realmente admin (vía metadata o tabla de perfiles)
   }
 
   return response
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/admin/:path*', '/parent/:path*'],
 }
